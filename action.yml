@@ -1,0 +1,16 @@
+# action.yml
+name: 'Cargo Parity Tech'
+description: 'Run commands in Parity Tech environment.'
+inputs:
+  command:  # id of input
+    description: 'Cargo command to execute.'
+    required: true
+  path:
+    description: 'Directory to execute the command.'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.command }}
+    - ${{ inputs.path }}
